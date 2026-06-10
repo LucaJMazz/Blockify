@@ -6,6 +6,7 @@ let server = "http://localhost:8080";
  * For production: Tests if local host is active, else route to railway server
  */
 async function testLocalHost() {
+	let status = false;
 	try {
 		
 		const response = await fetch( `${server}/api/status`, {
@@ -15,17 +16,20 @@ async function testLocalHost() {
 		if (!response.ok) throw new Error(`Status: ${response.status}`);
 		
 		const data = await response.json();
-		if (data.status == 'online')
-			return true;
+		if (data.Status == 'Online')
+			status = true;
 		
 	} catch (error) {
-		return false;
+		console.log(error.getMessage());
+		status = false;
 	}
+	
+	if (!status) {
+		server = "https://blockify-production.up.railway.app";
+	}
+	console.log('running server: ', server)
 }
-if (!testLocalHost()) {
-	server = "https://blockify-production.up.railway.app";
-}
-console.log('running server: ', server)
+testLocalHost();
 
 document.addEventListener('DOMContentLoaded', () => {
     uploadButton = document.getElementById('uploadButton');

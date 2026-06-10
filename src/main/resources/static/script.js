@@ -20,7 +20,6 @@ async function testLocalHost() {
 			status = true;
 		
 	} catch (error) {
-		console.log(error.getMessage());
 		status = false;
 	}
 	

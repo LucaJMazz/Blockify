@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+@CrossOrigin(origins = {
+	    "https://ngrok-free.dev", 
+	    "https://blockify-production.up.railway.app",
+	    "localhost:8080"
+})
 @RestController
 @RequestMapping("/api")
 public class ApiController {
@@ -36,6 +42,7 @@ public class ApiController {
 	 * @param file
 	 * @return byte array of image data to be returned to sender
 	 */
+	
 	@PostMapping(value = "/upload", produces = MediaType.IMAGE_PNG_VALUE)
 	public ResponseEntity<byte[]> uploadImage(
 			@RequestParam("file") MultipartFile file,

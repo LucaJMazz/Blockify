@@ -22,7 +22,7 @@ async function testLocalHost() {
 		return false;
 	}
 }
-if (!testLocalHost) {
+if (!testLocalHost()) {
 	server = "https://blockify-production.up.railway.app";
 }
 console.log('running server: ', server)

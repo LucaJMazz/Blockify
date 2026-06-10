@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px;
+    padding: 0px;
+    gap: 10px;
+    margin: 0px;
+
+    /* background-color: rgba(255, 0, 0, 0.39); */
+}
+.input-container p {
+    /* background-color: rgba(32, 164, 187, 0.438); */
+}
+input {
+    height: fit-content;
+    /* background-color: rgba(32, 187, 60, 0.438); */
+}
+
+img {
+    border: solid black 10px;
+    width: 500px;
+    height: 500px;
+    image-rendering: pixelated;
+}

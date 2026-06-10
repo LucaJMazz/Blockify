@@ -1,12 +1,11 @@
-let uploadButton, fileBox, heightBox, widthBox, imgResult;
+let uploadButton, fileBox, scaleBox, imgResult;
 //const server = "https://prude-runny-emphatic.ngrok-free.dev";
 const server = "http://localhost:8080";
 
 document.addEventListener('DOMContentLoaded', () => {
     uploadButton = document.getElementById('uploadButton');
     fileBox = document.getElementById('file');
-    heightBox = document.getElementById('height');
-    widthBox = document.getElementById('width');
+    scaleBox = document.getElementById('scale');
     imgResult = document.getElementById('resultImg');
 
     uploadButton.addEventListener('click', sendData);
@@ -17,8 +16,7 @@ async function sendData() {
     try {
         const formData = new FormData(); // Creates form data to send values to server
         formData.append("file", fileBox.files[0]);
-        formData.append("width", widthB ox.value);
-        formData.append("height", heightBox.value);
+        formData.append("scale", scaleBox.value);
 
         const response = await fetch( `${server}/api/upload`, {
             method: 'POST', // Must explicitly define the method

@@ -39,8 +39,7 @@ public class ApiController {
 	@PostMapping(value = "/upload", produces = MediaType.IMAGE_PNG_VALUE)
 	public ResponseEntity<byte[]> uploadImage(
 			@RequestParam("file") MultipartFile file,
-	        @RequestParam("width") int width,
-	        @RequestParam("height") int height
+	        @RequestParam("scale") int scale
 	        ) {
 		
 		// init vars
@@ -57,7 +56,7 @@ public class ApiController {
 		 * Runs process to convert image into minecraft blocks
 		 */
 		ImageProcessor IP = new ImageProcessor(); 
-		image = IP.editImage(image, width, height);
+		image = IP.editImage(image, scale);
 		
 		// Convert BufferedImage back to raw bytes
 		try {

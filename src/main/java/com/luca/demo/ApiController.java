@@ -62,8 +62,7 @@ public class ApiController {
 		/**
 		 * Runs process to convert image into minecraft blocks
 		 */
-		ImageProcessor IP = new ImageProcessor(); 
-		image = IP.editImage(image, scale);
+		image = ImageProcessor.editImage(image, scale);
 		
 		// Convert BufferedImage back to raw bytes
 		try {

@@ -10,21 +10,102 @@
 </head>
 
 <body>
-    <h1>Upload Image</h1>
-    <div class="input-container">
-        <p>Image:</p>
-		<input id="file" type="file"></input>
-	</div>
-    <div class="input-container">
-        <p>Scale:</p>
-		<input id="scale" value="50" type="number"></input>
-	</div>
+    <div class="body-cover"></div>
+
+    <div class="top-banner">
+        <div>
+            <h1>Blockify</h1>
+            <h2>Convert any image into minecraft blocks</h2>
+        </div>
+        <a target="_blank" href="https://github.com/LucaJMazz/Blockify"><img src="https://img.icons8.com/?size=100&id=nXgKLCSNhAWG&format=png&color=f3f3f3" alt="github icon"></a>
+    </div>
+
+    <div id="navbar" class="zero-scale">
+        <button class="nav-button">How to use</button>
+        <button class="nav-button">About</button>
+        <button class="nav-button">API</button>
+    </div>
+
+    <div class="top-panels">
+        <div class="dropbox-wrapper">
+            <label class="drop-box zero-scale">
+                <img src="https://img.icons8.com/?size=100&id=68826&format=png&color=f3f3f3" alt="image icon">
+                <h2>Drag & Drop Image Here</h2>
+                <p>Or click to add JPG, PNG, GIF, BMP, WBMP</p>
+                <input type="file" accept="image/*" hidden>
+            </label>
+        </div>
+        <div class="scale-container zero-scale">
+            <h2>Select scale</h2>
+            <input type="range" id="scale-slider" name="scale-slider" min="1" max="100" value="50" step="1">
+            <h2 id="scale-reader">Scale: 50</h2>
+            <p>The higher the scale, the more detailed the image</p>
+        </div>
+    </div>
 
     <br>
 
-    <button id="uploadButton"> Upload </button>
-	<p>Result:</p>
-	<img id="resultImg" src="">
+    <button id="uploadButton"> Convert > </button>
+    <div class="result-container">
+        <div>
+            <img id="imgResult" src="/assets/wool-background.png">
+            <div class="loading-bar hidden">
+                <img style="--num:0" src="/block_textures/grass_block_side.png" alt="loading bar">
+                <img style="--num:1" src="/block_textures/grass_block_side.png" alt="loading bar">
+                <img style="--num:2" src="/block_textures/grass_block_side.png" alt="loading bar">
+                <img style="--num:3" src="/block_textures/grass_block_side.png" alt="loading bar">
+                <img style="--num:4" src="/block_textures/grass_block_side.png" alt="loading bar">
+            </div>
+        </div>
+        <div class="button-container">
+            <a id="download-link" href="/assets/wool-background.png" download> <button id="download-button">Download</button> </a>
+            <button id="view-button">View</button>
+            <button id="clear-button">Clear</button>
+        </div>
+    </div>
+
+
+
+    <div class="how-to-use">
+        <h1>How to Use</h1>
+        <div class="container">
+            <div class="text-wrapper">
+                <h2>Upload image</h2>
+                <p>Upload any image in a .png, .jpg, .gif, .bmp, or .wbmp</p>
+                <p>File sizes must not be more than 20mb.</p>
+                <p>Any images uploaded are not saved to any server or database, it is polled directtly from the open source api and returned to the output box.</p>
+                <h2>Output image</h2>
+                <p>Download the converted image as a .png file onto yout computer by clicking the download button next to the result image.</p>
+                <p>View the full image in a new tab by clicking the view button next to the result image.</p>
+                <p>Clear the output image by clicking the clear button next to the result image.</p>
+            </div>
+            <div class="container">
+                <img src="/assets/unalteredImage.png" alt="blockified image">
+                <img src="https://img.icons8.com/?size=100&id=86088&format=png&color=f3f3f3" alt="arrow">
+                <img src="/assets/blockedImg.png" alt="unaltered image">
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <h1>About</h1>
+        <div class="container">
+            <div class="text-wrapper">
+                <h2>Why did I make this?</h2>
+                <p>I started this because I though it would be a cool portfolio project, but eventually I just continued making it to impress my beautiful girlfriend, and she probably won't evem care</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="api">
+        <h1>API</h1>
+        <div class="container">
+            <div class="text-wrapper">
+                <h2>Why did I make this?</h2>
+                <p>I started this because I though it would be a cool portfolio project, but eventually I just continued making it to impress my beautiful girlfriend, and she probably won't evem care</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html> 

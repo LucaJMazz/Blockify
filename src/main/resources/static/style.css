@@ -134,12 +134,9 @@ p {
 .nav-button:hover {
     text-decoration: underline;
     background-color: #257E20;
-    /* background: #5e962a; */
-    /* background: linear-gradient(-45deg,rgba(94, 150, 42, 1) 0%, rgba(38, 126, 32, 1) 55%, rgb(51, 166, 84) 100%); */
 }
 .nav-button:active {
     transform: scaleY(0.9) scaleX(0.97);
-
 }
 
 .drop-box {
@@ -260,7 +257,6 @@ button:active {
     animation: loadingBob 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) calc(var(--num) * 0.2s) infinite;
     height: 2rem;
     margin: .4rem;
-    /* box-shadow: 0px .55rem 1.7rem .0rem rgba(0, 0, 0, 0.652); */
 }
 
 .result-container .button-container {
@@ -336,9 +332,6 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
 }
 
 
-
-
-
 .how-to-use, .about, .api {
     margin-top: 7rem;
     background-color: #323232;
@@ -354,7 +347,7 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
     justify-content: top;
     align-items: center;
 }
-.how-to-use h1{
+.how-to-use h1, .about h1, .api h1{
     font-size: 3rem;
     margin-bottom: 5rem;
 }
@@ -385,4 +378,207 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
 }
 .text-wrapper p{
     color: lightgray
+}
+
+
+/* ============================================
+    RESPONSIVE — TABLET (≤ 768px)
+============================================ */
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 4.5rem;
+        padding-bottom: 6rem;
+    }
+
+    /* --- Banner --- */
+    .top-banner {
+        padding: 1rem;
+        padding-block: 2.2rem;
+    }
+    .top-banner h1 {
+        font-size: 2rem;
+    }
+    .top-banner h2 {
+        font-size: 0.8rem;
+    }
+    .top-banner img {
+        height: 2.2rem;
+    }
+    .top-banner div {
+        gap: 0.6rem;
+        align-items: center;
+    }
+
+    /* --- Navbar --- */
+    #navbar {
+        margin: 1rem;
+        border-radius: 100000rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-button {
+        padding-inline: 1.2rem;
+        min-width: 5.5rem;
+        font-size: 0.85rem;
+        height: 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    /* --- Top panels: go vertical --- */
+    .top-panels {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    /* --- Drop box & scale container: fluid width --- */
+    .drop-box {
+        width: min(85vw, 22rem);
+        height: auto;
+        min-height: 10rem;
+    }
+    .scale-container {
+        width: min(85vw, 22rem);
+        height: auto;
+        min-height: 10rem;
+    }
+
+    /* --- Result: stack image above buttons --- */
+    .result-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    /* Override the catch-all that sets all child divs to flex centered */
+    .result-container .button-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 0;
+        gap: 1rem;
+    }
+    .result-container .button-container button {
+        margin: 0;
+    }
+    #imgResult {
+        width: min(90vw, 30rem);
+    }
+
+    /* --- Sections --- */
+    .how-to-use, .about, .api {
+        margin-top: 4rem;
+        padding: 2rem;
+        padding-bottom: 3.5rem;
+    }
+    .how-to-use h1, .about h1, .api h1 {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    /* --- How-to-use: stack steps vertically --- */
+    .how-to-use .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .how-to-use img:nth-child(1),
+    .how-to-use img:nth-child(3) {
+        width: min(85vw, 20rem);
+        min-height: unset;
+    }
+    /* Arrow points down instead of right */
+    .how-to-use img:nth-child(2) {
+        width: 2.5rem;
+        transform: rotate(90deg);
+    }
+
+    .text-wrapper h2 {
+        font-size: 1.6rem;
+    }
+
+    button {
+        font-size: 1.6rem;
+        width: 7.5rem;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE — PHONE (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+
+    body {
+        padding-top: 4rem;
+    }
+
+    /* --- Banner: shrink more, hide subtitle --- */
+    .top-banner {
+        padding: 0.8rem;
+        padding-block: 1.8rem;
+    }
+    .top-banner h1 {
+        font-size: 1.5rem;
+    }
+    .top-banner h2 {
+        display: none;
+    }
+    .top-banner img {
+        height: 1.8rem;
+    }
+
+    /* --- Navbar: tighter pills --- */
+    #navbar {
+        margin: 0.8rem;
+        padding: 0.2rem;
+    }
+    .nav-button {
+        padding-inline: 0.8rem;
+        min-width: 4rem;
+        font-size: 0.75rem;
+        height: 1.6rem;
+    }
+
+    /* --- Drop/scale boxes: nearly full width --- */
+    .drop-box,
+    .scale-container {
+        width: 92vw;
+        padding: 1.2rem;
+    }
+
+    /* --- Result image full bleed-ish --- */
+    #imgResult {
+        width: 94vw;
+    }
+
+    /* --- Sections --- */
+    .how-to-use, .about, .api {
+        margin-top: 3rem;
+        padding: 1.2rem;
+        padding-bottom: 2.5rem;
+    }
+    .how-to-use h1, .about h1, .api h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .how-to-use img:nth-child(1),
+    .how-to-use img:nth-child(3) {
+        width: 92vw;
+    }
+
+    .text-wrapper h2 {
+        font-size: 1.3rem;
+    }
+    .text-wrapper p {
+        font-size: 0.85rem;
+    }
+
+    button {
+        font-size: 1.4rem;
+        width: 6.5rem;
+        height: 2.6rem;
+        margin: 0.8rem;
+    }
 }

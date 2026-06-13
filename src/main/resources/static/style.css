@@ -360,18 +360,25 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
     gap: 1rem;
 }
 .how-to-use img:nth-child(1), .how-to-use img:nth-child(3) {
-    width: 20rem;
-    min-height: 20rem;
+    width: clamp( 15rem, 20vw, 20rem);
+    min-height: 10rem;
     background-color: whitesmoke;
     border: solid .5rem #237B1E;
 }
 .how-to-use img:nth-child(2) {
     width: 3rem;
 }
+.container-wrapper {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+}
 
 .text-wrapper {
     justify-content: left;
     align-items: left;
+    margin: 1rem;
 }
 .text-wrapper h2{
     font-size: 2rem;
@@ -380,6 +387,15 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
     color: lightgray
 }
 
+/* ============================================
+    RESPONSIVE — TABLET (≤ 768px)
+============================================ */
+@media (max-width: 1090px) {
+    .container-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
 
 /* ============================================
     RESPONSIVE — TABLET (≤ 768px)
@@ -482,6 +498,11 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
         align-items: center;
         gap: 1.5rem;
     }
+    .container-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+
+    }
     .how-to-use img:nth-child(1),
     .how-to-use img:nth-child(3) {
         width: min(85vw, 20rem);
@@ -536,15 +557,16 @@ input#scale-slider[type=range]::-webkit-slider-thumb:active {
     .nav-button {
         padding-inline: 0.8rem;
         min-width: 4rem;
-        font-size: 0.75rem;
+        font-size: 1.2rem;
         height: 1.6rem;
     }
 
     /* --- Drop/scale boxes: nearly full width --- */
     .drop-box,
     .scale-container {
-        width: 92vw;
-        padding: 1.2rem;
+        width: 82vw;
+        padding: 1.2rem; 
+        box-sizing: border-box;
     }
 
     /* --- Result image full bleed-ish --- */

@@ -15,8 +15,8 @@ howToUseDiv,
 aboutDiv,
 apiDiv;
 let navbarButtons = [];
-// let server = "https://blockify-production.up.railway.app"
-let server = "http://localhost:8080";
+let server = "https://blockify-production.up.railway.app"
+// let server = "http://localhost:8080";
 
 
 document.addEventListener('DOMContentLoaded', () => {

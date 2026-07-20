@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 
@@ -68,6 +70,8 @@ public class ImageProcessor {
 	
 	public static BufferedImage blockifyImage(BufferedImage img) {
 		BufferedImage blockedImg = new BufferedImage(img.getWidth()*16, img.getHeight()*16, BufferedImage.TYPE_INT_RGB);
+		HashMap<MinecraftBlock, BufferedImage> usedBlocks = new HashMap<MinecraftBlock, BufferedImage>();
+		BufferedImage blockImg = null;
 		
 		for (int y = 0; y < img.getHeight(); y ++) {
 			for (int x = 0; x < img.getWidth(); x ++) {
@@ -77,17 +81,25 @@ public class ImageProcessor {
 				int g = (p >> 8) & 0xff; // G
 				int b = p & 0xff; // B
 				
-				MinecraftBlock block =	BlockPalette.findClosest(r, g, b);
-				BufferedImage blockImg = null;
-				try {
-		            //File file = new File("../../../../resources/static/block_textures/"+block.name()+".png");
-					InputStream is  = ImageProcessor.class.getResourceAsStream("/static/block_textures/"+block.name()+".png");
-		            blockImg = ImageIO.read(is);
-		            
-		        } catch (IOException e) {
-		            System.err.println("Error: Could not find or read the file.");
-		            e.printStackTrace();
-		        }
+				MinecraftBlock block = BlockPalette.findClosest(r, g, b);
+				
+				if(usedBlocks.containsKey(block)) {
+					blockImg = usedBlocks.get(block);
+					System.out.println(block + "," + blockImg);
+				}
+				
+				else {
+					try {
+						//File file = new File("../../../../resources/static/block_textures/"+block.name()+".png");
+						InputStream is  = ImageProcessor.class.getResourceAsStream("/static/block_textures/"+block.name()+".png");
+						blockImg = ImageIO.read(is);
+						usedBlocks.put(block, blockImg);
+						
+					} catch (IOException e) {
+						System.err.println("Error: Could not find or read the file.");
+						e.printStackTrace();
+					}
+				}
 				
 				
 				for (int i = 0; i < 16; i++) {

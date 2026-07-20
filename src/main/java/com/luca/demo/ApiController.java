@@ -19,8 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @CrossOrigin(origins = {
 	    "https://ngrok-free.dev", 
-	    "https://blockify-production.up.railway.app",
-	    "localhost:8080"
+	    "http://localhost:8080"
 })
 @RestController
 @RequestMapping("/api")
